@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 4px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --font-sans: Inter, "Segoe UI", Arial, sans-serif;
+  --animate-startup-enter: startup-enter 0.8s ease both;
+  --animate-startup-exit: startup-exit 0.45s ease 4.55s both;
+  --animate-startup-progress: startup-progress 4.6s
+    cubic-bezier(0.2, 0.65, 0.4, 1) both;
+  --animate-startup-pulse: startup-pulse 1.6s ease-in-out infinite;
+
+  @keyframes startup-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes startup-exit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  @keyframes startup-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+  @keyframes startup-pulse {
+    50% {
+      opacity: 0.3;
+      transform: scale(0.7);
+    }
+  }
+}
+
+@layer base {
+  html {
+    @apply bg-[#f6f8f6] font-sans text-[14px] text-[#23352e] antialiased;
+  }
+  body {
+    @apply m-0;
+  }
+  button,
+  input,
+  select {
+    @apply font-[inherit];
+  }
+  button,
+  a,
+  input,
+  select {
+    @apply [-webkit-tap-highlight-color:transparent];
+  }
+  button {
+    @apply cursor-pointer rounded-lg border border-[#dfe6e1] bg-white px-[15px] py-[10px] font-medium text-[#34483e] hover:bg-[#f0f5f1] disabled:cursor-wait disabled:opacity-50;
+  }
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-3 outline-offset-3 outline-[#74bda0];
+  }
+  input,
+  select {
+    @apply min-w-0 rounded-lg border border-[#dce4de] bg-white px-3 py-[10px] text-[#33483d] focus:outline-2 focus:outline-offset-1 focus:outline-[#9bcbb6];
+  }
+  h1 {
+    @apply text-[31px] font-semibold tracking-[-1.1px] max-[1100px]:text-[27px];
+  }
+  h2 {
+    @apply text-[29px] font-semibold tracking-[-1px];
+  }
+  h3 {
+    @apply text-base font-semibold tracking-[-.3px];
+  }
+  small {
+    @apply text-[11px];
+  }
+  p {
+    @apply leading-[1.7] text-[#849088];
+  }
+  strong {
+    @apply font-semibold;
+  }
+}
+
+@page {
+  margin: 15mm;
+}
+
