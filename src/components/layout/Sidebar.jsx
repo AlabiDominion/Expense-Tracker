@@ -5,10 +5,12 @@ const navigation = [
   ["Transactions", "⇄"],
   ["Reports", "▤"],
   ["Categories", "◈"],
+  ["Budgets", "◷"],
+  ["Debts", "◎"],
 ];
 export default function Sidebar({ page, onNavigate, user, demo }) {
   return (
-    <aside className="fixed inset-y-0 left-0 flex w-[235px] flex-col border-r border-[#dfe7ed] bg-white px-5 py-[30px] max-[1100px]:w-[195px] max-[1100px]:px-[14px] max-[1100px]:py-[25px] max-[780px]:relative max-[780px]:h-auto max-[780px]:w-full max-[780px]:flex-row max-[780px]:items-center max-[780px]:gap-5 max-[780px]:border-b max-[780px]:px-5 max-[780px]:py-4 max-[480px]:gap-[5px] max-[480px]:px-3 max-[480px]:py-[15px] print:hidden">
+    <aside className="fixed inset-y-0 left-0 flex w-[235px] flex-col border-r border-[#dfe7ed] bg-white px-5 py-[30px] max-[1100px]:w-[195px] max-[1100px]:px-[14px] max-[1100px]:py-[25px] max-[780px]:relative max-[780px]:h-auto max-[780px]:w-full max-[780px]:flex-row max-[780px]:flex-wrap max-[780px]:items-center max-[780px]:gap-5 max-[780px]:border-b max-[780px]:px-5 max-[780px]:py-4 max-[480px]:gap-[5px] max-[480px]:px-3 max-[480px]:py-[15px] print:hidden">
       <a
         className="flex flex-col items-start gap-[10px] text-[32px] font-bold tracking-normal text-[#0d2b42] no-underline max-[780px]:shrink-0 max-[780px]:gap-[5px]"
         href="#"
@@ -28,10 +30,11 @@ export default function Sidebar({ page, onNavigate, user, demo }) {
       <div className="px-[13px] pb-[13px] text-[9px] tracking-[1.4px] text-[#98a399] max-[780px]:hidden">
         WORKSPACE
       </div>
-      <nav className="grid gap-[7px] [&_button]:flex [&_button]:items-center [&_button]:gap-[13px] [&_button]:border-0 [&_button]:bg-transparent [&_button]:p-[13px] [&_button]:text-left [&_button]:text-[#7c8880] [&_button>span]:w-[23px] [&_button>span]:text-[21px] [&_i]:ml-auto [&_i]:size-[6px] [&_i]:rounded-full [&_i]:bg-[#0789d8] max-[780px]:ml-auto max-[780px]:flex max-[780px]:gap-[3px] max-[780px]:[&_button]:gap-[5px] max-[780px]:[&_button]:p-[9px] max-[780px]:[&_button]:text-[10px] max-[780px]:[&_button>span]:w-auto max-[780px]:[&_button>span]:text-[17px] max-[780px]:[&_i]:hidden max-[480px]:[&_button]:p-[10px] max-[480px]:[&_button]:text-[0px] max-[480px]:[&_button_span]:text-[21px]">
+      <nav className="grid gap-[7px] [&_button]:flex [&_button]:items-center [&_button]:gap-[13px] [&_button]:border-0 [&_button]:bg-transparent [&_button]:p-[13px] [&_button]:text-left [&_button]:text-[#7c8880] [&_button>span]:w-[23px] [&_button>span]:text-[21px] [&_i]:ml-auto [&_i]:size-[6px] [&_i]:rounded-full [&_i]:bg-[#0789d8] max-[780px]:ml-0 max-[780px]:w-full max-[780px]:justify-between max-[780px]:overflow-x-auto max-[780px]:flex max-[780px]:gap-[3px] max-[780px]:[&_button]:gap-[5px] max-[780px]:[&_button]:p-[9px] max-[780px]:[&_button]:text-[10px] max-[780px]:[&_button>span]:w-auto max-[780px]:[&_button>span]:text-[17px] max-[780px]:[&_i]:hidden max-[480px]:[&_button]:p-[10px] max-[480px]:[&_button]:text-[0px] max-[480px]:[&_button_span]:text-[21px]">
         {navigation.map(([name, icon]) => (
           <button
             key={name}
+            aria-label={name}
             className={
               page === name ? "bg-[#e7f2fa]! font-semibold text-[#086da5]!" : ""
             }
@@ -60,3 +63,4 @@ export default function Sidebar({ page, onNavigate, user, demo }) {
     </aside>
   );
 }
+

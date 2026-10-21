@@ -1,4 +1,7 @@
 import AccountPage from "./pages/AccountPage";
+import BudgetsPage from "./pages/BudgetsPage";
+import DebtsPage from "./pages/DebtsPage";
+import { usePlanning } from "./hooks/usePlanning";
 import { useAuth } from "./hooks/useAuth";
 import { useState } from "react";
 import {
@@ -36,6 +39,8 @@ const pages = {
   "/reports": "Reports",
   "/categories": "Categories",
   "/account": "Account",
+  "/budgets": "Budgets",
+  "/debts": "Debts",
 };
 
 export default function WorkspaceApp({ user, demo = false }) {
@@ -60,7 +65,8 @@ export default function WorkspaceApp({ user, demo = false }) {
   const [month, setMonth] = useState(currentMonth);
   const [importOpen, setImportOpen] = useState(false);
 
-  const data = useExpenseData({ demo });
+  const planning = usePlanning(demo);
+  const data = useExpenseData({ demo, planning });
 
   const { notice, notify } = useNotification();
 
@@ -153,12 +159,33 @@ export default function WorkspaceApp({ user, demo = false }) {
           />
 
           {/* Summary cards */}
-          {page !== "Categories" && page !== "Account" && (
+          {["Overview", "Transactions", "Reports"].includes(page) && (
             <SummaryCards {...report} month={month} />
           )}
 
           {/* Application routes */}
           <Routes>
+            <Route
+              path={base + "/budgets"}
+              element={
+                <BudgetsPage
+                  planning={planning}
+                  categories={data.categories}
+                  transactions={data.transactions}
+                  month={month}
+                  onRefresh={data.refreshData}
+                />
+              }
+            />
+            <Route
+              path={base + "/debts"}
+              element={
+                <DebtsPage
+                  planning={planning}
+                  transactions={data.transactions}
+                />
+              }
+            />
             <Route
               path={base + "/overview"}
               element={

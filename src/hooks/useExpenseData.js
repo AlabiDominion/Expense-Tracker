@@ -4,7 +4,7 @@ import { expenseApi } from "../services/expenseApi";
 import { readStoredData, saveStoredData } from "../services/storage";
 
 // Live MySQL data and presentation fixtures always use separate storage.
-export function useExpenseData({ demo = false } = {}) {
+export function useExpenseData({ demo = false, planning } = {}) {
   const workspace = demo ? "demo" : "live";
   const [categories, setCategories] = useState([]);
   const [transactions, setTransactions] = useState([]);
@@ -62,6 +62,10 @@ export function useExpenseData({ demo = false } = {}) {
 
   async function saveTransaction(transaction) {
     assertWritable();
+    if (planning?.payments.some((p) => p.transaction_id === transaction.id))
+      throw new Error(
+        "Unlink this expense from its debt repayment before editing it.",
+      );
     const saved =
       mode === "MySQL API"
         ? await expenseApi.saveTransaction(transaction)
@@ -75,6 +79,10 @@ export function useExpenseData({ demo = false } = {}) {
 
   async function deleteTransaction(id) {
     assertWritable();
+    if (planning?.payments.some((p) => p.transaction_id === id))
+      throw new Error(
+        "Unlink this expense from its debt repayment before deleting it.",
+      );
     if (mode === "MySQL API") await expenseApi.deleteTransaction(id);
     setTransactions((rows) => rows.filter((row) => row.id !== id));
   }
@@ -99,6 +107,10 @@ export function useExpenseData({ demo = false } = {}) {
 
   async function deleteCategory(id, replacementId) {
     assertWritable();
+    if (planning?.budgets.some((b) => b.category_id === id))
+      throw new Error(
+        "Remove this category’s budgets before deleting the category.",
+      );
     const category = categories.find((row) => row.id === id);
     const used = transactions.some((row) => row.category_id === id);
     const replacement = categories.find(
@@ -127,7 +139,12 @@ export function useExpenseData({ demo = false } = {}) {
   }
 
   async function refreshData() {
-    const [rows, groups] = await expenseApi.load();
+    const [rows, groups] = demo
+      ? [
+          readStoredData("transactions", seedTransactions),
+          readStoredData("categories", () => defaultCategories),
+        ]
+      : await expenseApi.load();
     setTransactions(rows);
     setCategories(groups);
   }
