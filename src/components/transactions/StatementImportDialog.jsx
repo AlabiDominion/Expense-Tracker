@@ -44,7 +44,7 @@ export default function StatementImportDialog({
           <p className="mt-2 text-[11px]">
             {preview
               ? `${preview.bank} · ${preview.pages} pages · ${rows.length} extracted transactions`
-              : "Upload a Moniepoint statement and turn it into organized transactions."}
+              : "Upload a supported bank statement PDF and turn it into organized transactions."}
           </p>
         </div>
         <button

@@ -122,7 +122,7 @@ export default function LandingPage() {
             [
               "02",
               "Your statement, simplified",
-              "Upload a supported Moniepoint PDF, review the entries, and import what you approve.",
+              "Upload a supported bank statement PDF, review the entries, and import what you approve.",
             ],
             [
               "03",

@@ -40,7 +40,7 @@ export default function TransactionsPage({
             className="border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]"
             title={
               canImport
-                ? "Upload a Moniepoint statement"
+                ? "Upload a bank statement PDF"
                 : "Switch to Live database to import a statement"
             }
           >
