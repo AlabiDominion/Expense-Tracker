@@ -18,11 +18,11 @@ export default function StatementImportDialog({
     return () => element.close();
   }, []);
   const primary =
-    "rounded-lg border-[#248461] bg-[#248461] px-4 py-[10px] text-white hover:bg-[#1a6f50]";
+    "rounded-lg border-[#087dbd] bg-[#087dbd] px-4 py-[10px] text-white hover:bg-[#06689e]";
   return (
     <dialog
       ref={dialog}
-      className="m-auto max-h-[90dvh] w-[min(1100px,calc(100vw-32px))] overflow-auto rounded-2xl border border-[#e2e8e2] bg-[#f7f9f6] p-0 text-[#23352e] shadow-2xl backdrop:bg-[#142e2566] backdrop:backdrop-blur-[3px]"
+      className="m-auto max-h-[90dvh] w-[min(1100px,calc(100vw-32px))] overflow-auto rounded-2xl border border-[#e2e8e2] bg-[#f7f9f6] p-0 text-[#183247] shadow-2xl backdrop:bg-[#071b2a88] backdrop:backdrop-blur-[3px]"
       aria-labelledby="statement-title"
       onCancel={(event) => {
         event.preventDefault();
@@ -31,7 +31,7 @@ export default function StatementImportDialog({
     >
       <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-[#e2e8e2] bg-white px-6 py-5">
         <div>
-          <span className="text-[9px] font-semibold tracking-[2px] text-[#7f9383]">
+          <span className="text-[9px] font-semibold tracking-[2px] text-[#7d94a5]">
             SMART STATEMENT IMPORT
           </span>
           <h2 id="statement-title" className="mt-2 text-[23px]">

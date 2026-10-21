@@ -1,4 +1,4 @@
-# ECEWS frontend
+# CloudBerth frontend
 
 See the [workspace setup and presentation guide](../README.md).
 
@@ -8,4 +8,5 @@ npm run dev
 ```
 
 Optional: copy `.env.example` to `.env` to override the API URL.
+
 

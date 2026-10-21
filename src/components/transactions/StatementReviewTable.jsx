@@ -6,7 +6,7 @@ export default function StatementReviewTable({
   onUpdate,
 }) {
   const field =
-    "w-full rounded-md border border-[#dce4de] bg-white px-2 py-2 text-[11px]";
+    "w-full rounded-md border border-[#dce6ed] bg-white px-2 py-2 text-[11px]";
   return (
     <div className="max-h-[360px] overflow-auto rounded-lg border border-[#e2e8e2] bg-white">
       <table className="w-full min-w-[880px] text-left text-[11px]">
@@ -44,7 +44,7 @@ export default function StatementReviewTable({
                       selected: e.target.checked,
                     })
                   }
-                  className="size-4 accent-[#248461]"
+                  className="size-4 accent-[#087dbd]"
                 />
               </td>
               <td className="p-2">
@@ -133,7 +133,7 @@ export default function StatementReviewTable({
                     ))}
                 </select>
               </td>
-              <td className="whitespace-nowrap p-3 text-[10px] text-[#7f9383]">
+              <td className="whitespace-nowrap p-3 text-[10px] text-[#7d94a5]">
                 {row.duplicate
                   ? "Already imported"
                   : row.possible_duplicate

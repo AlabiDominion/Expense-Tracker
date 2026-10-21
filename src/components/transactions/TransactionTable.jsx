@@ -87,7 +87,7 @@ export default function TransactionTable({
         </tbody>
       </table>
       {!rows.length && (
-        <div className="p-[45px] text-center leading-[2] text-[#89988b] [&_button]:border-0 [&_button]:text-xs [&_button]:text-[#258562]">
+        <div className="p-[45px] text-center leading-[2] text-[#89988b] [&_button]:border-0 [&_button]:text-xs [&_button]:text-[#0789d8]">
           No transactions here yet.
           <br />
           <button onClick={() => onAdd()}>Add your first transaction →</button>

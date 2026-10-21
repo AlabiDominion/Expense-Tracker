@@ -1,4 +1,4 @@
-export default function ConnectionBanner({ mode, error, onRetry, onDemo }) {
+export default function ConnectionBanner({ mode, error, onRetry }) {
   if (mode === "Local demo")
     return (
       <div className="mt-[-9px] mb-5 text-[10px] text-[#8c947f] print:hidden">
@@ -24,7 +24,6 @@ export default function ConnectionBanner({ mode, error, onRetry, onDemo }) {
       <p>{error}</p>
       <div>
         <button onClick={onRetry}>Retry connection</button>
-        <button onClick={onDemo}>Open presentation demo</button>
       </div>
     </div>
   );

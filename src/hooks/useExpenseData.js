@@ -4,8 +4,8 @@ import { expenseApi } from "../services/expenseApi";
 import { readStoredData, saveStoredData } from "../services/storage";
 
 // Live MySQL data and presentation fixtures always use separate storage.
-export function useExpenseData() {
-  const [workspace, setWorkspace] = useState("live");
+export function useExpenseData({ demo = false } = {}) {
+  const workspace = demo ? "demo" : "live";
   const [categories, setCategories] = useState([]);
   const [transactions, setTransactions] = useState([]);
   const [mode, setMode] = useState("Connecting");
@@ -47,15 +47,6 @@ export function useExpenseData() {
     saveStoredData("categories", categories);
   }, [transactions, categories, mode]);
 
-  function switchWorkspace(next) {
-    if (next === workspace) return;
-    setMode("Connecting");
-    setConnectionError("");
-    setTransactions([]);
-    setCategories([]);
-    setWorkspace(next);
-  }
-
   function retryConnection() {
     setMode("Connecting");
     setConnectionError("");
@@ -65,7 +56,7 @@ export function useExpenseData() {
   function assertWritable() {
     if (mode !== "MySQL API" && mode !== "Local demo")
       throw new Error(
-        "Connect to the database or select Demo before making changes.",
+        "Your workspace is not connected. Please retry before making changes.",
       );
   }
 
@@ -148,7 +139,6 @@ export function useExpenseData() {
     mode,
     workspace,
     connectionError,
-    switchWorkspace,
     retryConnection,
     saveTransaction,
     deleteTransaction,

@@ -37,7 +37,7 @@ export default function TransactionsPage({
           <button
             disabled={!canImport}
             onClick={onImport}
-            className="border-[#248461] bg-[#248461] text-white hover:bg-[#1a6f50]"
+            className="border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]"
             title={
               canImport
                 ? "Upload a Moniepoint statement"

@@ -16,7 +16,7 @@ export default function DeleteTransactionDialog({
   return (
     <dialog
       ref={dialog}
-      className="m-auto max-h-[calc(100dvh-40px)] w-[min(440px,calc(100vw-32px))] overflow-auto rounded-2xl border border-[#e2e8e2] bg-white p-0 text-[#23352e] shadow-[0_24px_90px_#12302030] backdrop:bg-[#142e2566] backdrop:backdrop-blur-[3px]"
+      className="m-auto max-h-[calc(100dvh-40px)] w-[min(440px,calc(100vw-32px))] overflow-auto rounded-2xl border border-[#e2e8e2] bg-white p-0 text-[#183247] shadow-[0_24px_90px_#12302030] backdrop:bg-[#071b2a88] backdrop:backdrop-blur-[3px]"
       aria-labelledby="delete-title"
       aria-describedby="delete-description"
       onCancel={(event) => {

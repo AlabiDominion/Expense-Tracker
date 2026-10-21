@@ -46,7 +46,7 @@ export default function DeleteCategoryDialog({
         event.preventDefault();
         if (!busy) onClose();
       }}
-      className="m-auto w-[min(460px,calc(100vw-32px))] rounded-2xl border border-[#e2e8e2] bg-white p-6 text-[#23352e] shadow-2xl backdrop:bg-[#142e2566] backdrop:backdrop-blur-[3px]"
+      className="m-auto w-[min(460px,calc(100vw-32px))] rounded-2xl border border-[#e2e8e2] bg-white p-6 text-[#183247] shadow-2xl backdrop:bg-[#071b2a88] backdrop:backdrop-blur-[3px]"
     >
       <div className="mb-4 flex items-center justify-between gap-4">
         <h2 id="delete-category-title" className="text-[22px]">

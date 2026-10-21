@@ -2,7 +2,7 @@ import { useRef } from "react";
 export default function StatementUpload({ busy, onUpload }) {
   const input = useRef(null);
   const primary =
-    "rounded-lg border-[#248461] bg-[#248461] px-4 py-[10px] text-white hover:bg-[#1a6f50]";
+    "rounded-lg border-[#087dbd] bg-[#087dbd] px-4 py-[10px] text-white hover:bg-[#06689e]";
   return (
     <>
       <div
@@ -13,7 +13,7 @@ export default function StatementUpload({ busy, onUpload }) {
           if (!busy) onUpload(e.dataTransfer.files[0]);
         }}
       >
-        <div className="mx-auto mb-6 grid size-14 place-items-center rounded-2xl bg-[#eaf3ed] text-2xl text-[#248461]">
+        <div className="mx-auto mb-6 grid size-14 place-items-center rounded-2xl bg-[#e7f2fa] text-2xl text-[#087dbd]">
           ↑
         </div>
         <h3>{busy ? "Reading your statement…" : "Drop your statement here"}</h3>
@@ -61,7 +61,7 @@ export default function StatementUpload({ busy, onUpload }) {
             key={n}
             className="rounded-lg border border-[#e2e8e2] bg-white p-4"
           >
-            <span className="text-[10px] text-[#7f9383]">{n}</span>
+            <span className="text-[10px] text-[#7d94a5]">{n}</span>
             <strong className="mt-2 block">{title}</strong>
             <p className="mt-2 text-[11px]">{body}</p>
           </div>

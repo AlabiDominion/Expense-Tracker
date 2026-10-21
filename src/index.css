@@ -56,7 +56,7 @@
 
 @layer base {
   html {
-    @apply bg-[#f6f8f6] font-sans text-[14px] text-[#23352e] antialiased;
+    @apply bg-[#f5f8fb] font-sans text-[14px] text-[#183247] antialiased;
   }
   body {
     @apply m-0;
@@ -73,15 +73,15 @@
     @apply [-webkit-tap-highlight-color:transparent];
   }
   button {
-    @apply cursor-pointer rounded-lg border border-[#dfe6e1] bg-white px-[15px] py-[10px] font-medium text-[#34483e] hover:bg-[#f0f5f1] disabled:cursor-wait disabled:opacity-50;
+    @apply cursor-pointer rounded-lg border border-[#dce6ed] bg-white px-[15px] py-[10px] font-medium text-[#345369] hover:bg-[#edf5fa] disabled:cursor-wait disabled:opacity-50;
   }
   button:focus-visible,
   a:focus-visible {
-    @apply outline-3 outline-offset-3 outline-[#74bda0];
+    @apply outline-3 outline-offset-3 outline-[#70b5e3];
   }
   input,
   select {
-    @apply min-w-0 rounded-lg border border-[#dce4de] bg-white px-3 py-[10px] text-[#33483d] focus:outline-2 focus:outline-offset-1 focus:outline-[#9bcbb6];
+    @apply min-w-0 rounded-lg border border-[#dce6ed] bg-white px-3 py-[10px] text-[#345369] focus:outline-2 focus:outline-offset-1 focus:outline-[#8dbedf];
   }
   h1 {
     @apply text-[31px] font-semibold tracking-[-1.1px] max-[1100px]:text-[27px];
@@ -106,4 +106,3 @@
 @page {
   margin: 15mm;
 }
-

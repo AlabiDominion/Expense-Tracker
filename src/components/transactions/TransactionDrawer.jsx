@@ -8,7 +8,7 @@ export default function TransactionDrawer({
 }) {
   return (
     <div
-      className="fixed inset-0 z-30 flex justify-end bg-[#142e2555] backdrop-blur-[3px]"
+      className="fixed inset-0 z-30 flex justify-end bg-[#071b2a66] backdrop-blur-[3px]"
       onClick={() => !busy && setForm(null)}
     >
       <section
@@ -20,7 +20,7 @@ export default function TransactionDrawer({
       >
         <div className="flex items-center justify-between gap-[15px] px-6 py-[22px] [&_p]:mt-[6px] [&_p]:text-[10px] max-[1100px]:px-[17px] max-[1100px]:py-5 max-[780px]:flex-wrap">
           <div>
-            <div className="mb-[10px] text-[9px] font-semibold tracking-[1.8px] text-[#7f9383]">
+            <div className="mb-[10px] text-[9px] font-semibold tracking-[1.8px] text-[#7d94a5]">
               KEEP YOUR BOOKS UP TO DATE
             </div>
             <h2 id="form-title">
@@ -39,7 +39,7 @@ export default function TransactionDrawer({
                 key={t}
                 className={
                   form.type === t
-                    ? "bg-white! text-[#258562]! shadow-[0_2px_5px_#1430200a]"
+                    ? "bg-white! text-[#0789d8]! shadow-[0_2px_5px_#1430200a]"
                     : ""
                 }
                 onClick={() =>
@@ -134,7 +134,7 @@ export default function TransactionDrawer({
               Cancel
             </button>
             <button
-              className="border-[#248461] bg-[#248461] text-white hover:bg-[#1a6f50]"
+              className="border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]"
               disabled={busy}
             >
               {busy ? "Saving…" : "Save transaction"}

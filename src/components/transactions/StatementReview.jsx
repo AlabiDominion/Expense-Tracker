@@ -7,7 +7,7 @@ export default function StatementReview({ importer, categories, onClose }) {
   const { rows, preview, busy } = importer;
   const selected = rows.filter((row) => row.selected && !row.duplicate);
   const pages = Math.ceil(rows.length / 20);
-  const primary = "border-[#248461] bg-[#248461] text-white hover:bg-[#1a6f50]";
+  const primary = "border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]";
   return (
     <>
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
@@ -121,10 +121,10 @@ export default function StatementReview({ importer, categories, onClose }) {
           </button>
         </div>
       </div>
-      <div className="mt-6 border-t border-[#dce4de] pt-5">
+      <div className="mt-6 border-t border-[#dce6ed] pt-5">
         <label className="flex items-center gap-3 text-xs text-[#64796b]">
           <input
-            className="size-4 accent-[#248461]"
+            className="size-4 accent-[#087dbd]"
             type="checkbox"
             checked={importer.acknowledged}
             disabled={busy}

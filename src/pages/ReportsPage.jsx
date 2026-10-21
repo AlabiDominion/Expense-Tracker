@@ -22,7 +22,7 @@ export default function ReportsPage({
       <section className="overflow-hidden rounded-xl border border-[#e2e8e2] bg-white print:break-inside-avoid print:shadow-none pb-[10px] print:mt-5">
         <div className="flex items-center justify-between gap-[15px] px-6 py-[22px] [&_p]:mt-[6px] [&_p]:text-[10px] max-[1100px]:px-[17px] max-[1100px]:py-5 max-[780px]:flex-wrap">
           <div>
-            <h3>ECEWS · Monthly statement</h3>
+            <h3>CloudBerth · Monthly statement</h3>
             <p>
               {monthLabel(month)} · {monthly.length} transactions · NGN
             </p>
@@ -32,7 +32,7 @@ export default function ReportsPage({
               ↓ Export CSV
             </button>
             <button
-              className="border-[#248461] bg-[#248461] text-white hover:bg-[#1a6f50]"
+              className="border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]"
               onClick={() => window.print()}
             >
               ↓ Save as PDF

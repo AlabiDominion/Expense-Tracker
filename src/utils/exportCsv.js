@@ -22,7 +22,7 @@ export function downloadCsv(rows, categories, month) {
   );
   const a = document.createElement("a");
   a.href = url;
-  a.download = `ecews-expenses-${month}.csv`;
+  a.download = `cloudberth-expenses-${month}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }

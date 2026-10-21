@@ -49,7 +49,7 @@ export default function CategoriesPage({
             <option value="income">Income</option>
           </select>
           <button
-            className="border-[#248461] bg-[#248461] text-white hover:bg-[#1a6f50]"
+            className="border-[#087dbd] bg-[#087dbd] text-white hover:bg-[#06689e]"
             disabled={mode !== "MySQL API" && mode !== "Local demo"}
           >
             ＋ Add category

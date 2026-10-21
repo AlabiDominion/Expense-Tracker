@@ -28,7 +28,13 @@ export function filterTransactions(
   );
 }
 
-export function buildMonthlyReport(transactions, categories, month) {
+export function buildMonthlyReport(transactions, categories, month, today = new Date().toLocaleDateString("en-CA", { timeZone: "Africa/Lagos" })) {
+  const monthEnd = new Date(`${month}-01T12:00:00`);
+  monthEnd.setMonth(monthEnd.getMonth() + 1, 0);
+  const endDate = `${month}-${String(monthEnd.getDate()).padStart(2, "0")}`;
+  const balanceAsOf = endDate < today ? endDate : today;
+  const cumulative = transactions.filter((t) => t.transaction_date <= balanceAsOf);
+  const totalNet = cumulative.reduce((total, t) => total + (t.type === "income" ? 1 : -1) * Math.round(Number(t.amount) * 100), 0) / 100;
   const monthly = sortTransactions(
     transactions.filter((t) => t.transaction_date.startsWith(month)),
   );
@@ -53,5 +59,5 @@ export function buildMonthlyReport(transactions, categories, month) {
       expense: sumAmounts(rows.filter((t) => t.type === "expense")),
     };
   });
-  return { monthly, income, expense, breakdown, history };
+  return { monthly, income, expense, breakdown, history, totalNet, balanceAsOf };
 }

@@ -89,3 +89,20 @@ test("empty month produces zero totals and no category slices", () => {
     report.history.every((month) => month.income === 0 && month.expense === 0),
   );
 });
+
+test("total net carries history across years and empty months", () => {
+  const previous = { ...rows[2], amount: "50.10", transaction_date: "2025-12-31" };
+  const report = buildMonthlyReport([...rows, previous], categories, "2026-04", "2026-10-21");
+  assert.equal(report.income, 0);
+  assert.equal(report.expense, 0);
+  assert.equal(report.totalNet, 49.81);
+  assert.equal(report.balanceAsOf, "2026-04-30");
+});
+
+test("total net stops at selected month end or today and permits negative balances", () => {
+  assert.equal(buildMonthlyReport(rows, categories, "2026-02", "2026-10-21").totalNet, 99.7);
+  const current = buildMonthlyReport(rows, categories, "2026-02", "2026-02-10");
+  assert.equal(current.totalNet, -0.1);
+  assert.equal(current.balanceAsOf, "2026-02-10");
+  assert.equal(buildMonthlyReport([], categories, "2026-02").totalNet, 0);
+});
