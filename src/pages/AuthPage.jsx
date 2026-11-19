@@ -71,7 +71,7 @@ export default function AuthPage({ variant = "login" }) {
         </Link>
         <div className="relative z-1">
           <span className="text-[10px] tracking-[2px] text-[#7aabc9]">
-            PERSONAL FINANCE, A LITTLE SIMPLER
+            YOUR FINANCE, A LITTLE SIMPLER
           </span>
           <h2 className="mt-6 text-[48px] leading-[1.16] tracking-[-1.8px]">
             Small everyday moves.
